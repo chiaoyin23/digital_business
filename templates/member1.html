@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員管理</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #274356;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #274356;
+            color: white;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input, button {
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        button {
+            background-color: #274356;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #274356;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>會員管理-分店1
+        <select onchange="location = this.value;">
+            <option value="#" selected>選擇分店</option>
+            <option value="/member2">分店2</option>
+        </select>
+    </h1>
+
+    <table id="membersTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>姓別</th>
+                <th>電話號碼</th>
+                <th>Email</th>
+                <th>Line ID</th>
+                <th>入會時間</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 這裡放會員列表的資料 -->
+            <tr>
+                <td>1</td>
+                <td>林我聰</td>
+                <td>男</td>
+                <td>123-456-7890</td>
+                <td>imsmart@gmail.com</td>
+                <td>imsmart</td>
+                <td>112/12/14</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>林我笨</td>
+                <td>女</td>
+                <td>123-456-0000</td>
+                <td>imstupid@gmail.com</td>
+                <td>imstupid</td>
+                <td>112/12/13</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>胡曉萱</td>
+                <td>女</td>
+                <td>213-456-0000</td>
+                <td>xiousuan@gmail.com</td>
+                <td>xiousuan</td>
+                <td>112/11/13</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>葉萬零</td>
+                <td>女</td>
+                <td>000-000-0000</td>
+                <td>zero@gmail.com</td>
+                <td>zero</td>
+                <td>111/11/13</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>陳夏月</td>
+                <td>女</td>
+                <td>000-888-0000</td>
+                <td>summermoon@gmail.com</td>
+                <td>summermoon</td>
+                <td>111/10/13</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>游蛙式</td>
+                <td>女</td>
+                <td>111-888-0000</td>
+                <td>froggy@gmail.com</td>
+                <td>froggy</td>
+                <td>111/10/8</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>湯好燙</td>
+                <td>女</td>
+                <td>111-888-9999</td>
+                <td>souphot@gmail.com</td>
+                <td>souphot</td>
+                <td>111/10/7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>劉線華</td>
+                <td>男</td>
+                <td>100-111-1989</td>
+                <td>henrylau@gmail.com</td>
+                <td>henrylau</td>
+                <td>111/10/11</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>王鶴妹</td>
+                <td>女</td>
+                <td>183-111-1989</td>
+                <td>dylanwang@gmail.com</td>
+                <td>dylanwang</td>
+                <td>111/9/11</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>迪利喇叭</td>
+                <td>女</td>
+                <td>983-111-8739</td>
+                <td>dilireba@gmail.com</td>
+                <td>dilireba</td>
+                <td>111/6/3</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>白鷺鷥</td>
+                <td>女</td>
+                <td>993-000-8739</td>
+                <td>bailu@gmail.com</td>
+                <td>bailu</td>
+                <td>111/9/3</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>盛蛋杰</td>
+                <td>男</td>
+                <td>993-000-1225</td>
+                <td>christmas@gmail.com</td>
+                <td>christmas</td>
+                <td>111/12/25</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>魏升芷</td>
+                <td>女</td>
+                <td>993-888-1225</td>
+                <td>tissue@gmail.com</td>
+                <td>tissue</td>
+                <td>111/3/25</td>
+            </tr>
+            <!-- 其他會員資料 -->
+        </tbody>
+    </table>
+
+</body>
+</html>
