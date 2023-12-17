@@ -18,4 +18,8 @@ def getRFM():
     )
     rfm['log_monetary'] = np.log(rfm['monetary'])
     print(rfm)
-getRFM()
+
+
+# getRFM()
+# 取得 RFM 資料
+rfm_data = getRFM()

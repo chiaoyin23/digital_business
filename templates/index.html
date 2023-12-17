@@ -11,5 +11,40 @@
     <!--<a href="http://127.0.0.1:5000/member">連結到網頁</a>-->
     <a href="/member1">會員頁面</a>
     <br>
+
+    <h1>RFM Table</h1>
+    <table border="1">
+        <tr>
+            <th>C_ID</th>
+            <th>Recency</th>
+            <th>Frequency</th>
+            <th>Monetary</th>
+            <!-- Add more columns as needed -->
+        </tr>
+        {% for index, row in rfm_data.iterrows() %}
+            <tr>
+                <td>{{ index }}</td>
+                <td>{{ row['recency'] }}</td>
+                <td>{{ row['frequency'] }}</td>
+                <td>{{ row['monetary'] }}</td>
+                <!-- Add more columns as needed -->
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h1>CLV Table</h1>
+    <table border="1">
+        <tr>
+            <th>Rank</th>
+            <th>CLV Value</th>
+        </tr>
+        {% for row in clv_data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
 </body>
 </html>
