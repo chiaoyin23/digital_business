@@ -31,20 +31,8 @@
             </tr>
         {% endfor %}
     </table>
-
-    <h1>CLV Table</h1>
-    <table border="1">
-        <tr>
-            <th>Rank</th>
-            <th>CLV Value</th>
-        </tr>
-        {% for row in clv_data %}
-            <tr>
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    <h2>CLV Data</h2>
+    {{ clv_data.to_html() | safe }}
     
 </body>
 </html>

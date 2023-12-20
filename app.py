@@ -43,9 +43,10 @@ def getCLV():
     retain = rfm[rfm['frequency']>1] #我們只取出購買頻率>1的(不是短期單次的顧客)
     ggf = GammaGammaFitter(penalizer_coef=0.001)
     ggf.fit(retain['frequency'],retain['monetary'])
-    ggf.conditional_expected_average_profit(rfm['frequency'],rfm['recency'],rfm['senior'])
+    conditional_avg_profit = ggf.conditional_expected_average_profit(rfm['frequency'],rfm['recency'])
     
-    bgf = BetaGeoFitter(penalizer_coef=0.001).fit(rfm['frequency'],rfm['recency'],rfm['senior'])
+    bgf = BetaGeoFitter(penalizer_coef=0.1).fit(rfm['frequency'], rfm['recency'], rfm['senior'])
+
     
     clv = ggf.customer_lifetime_value(
         bgf,
@@ -63,19 +64,19 @@ def getCLV():
     for i in range(len(clv)):
       table.append([i+1, round(clv_list[i],2)])
 
-    return table
+    clv_df = pd.DataFrame(table, columns=['Customer Number', 'CLV Value'])
 
-    #顧客終身價值公式
-    # method1 = rfm['monetary']*6
-    # method2 = rfm['monetary'] * rfm['frequency']
-    # method3 = method1 / np.count(rfm['C_ID'])
+    
+    return clv_df
 
 
 # 建立路徑 / 對應的處理函式
 @app.route("/")
 def index():
     rfm_data = getRFM()
-    return render_template("index.html", rfm_data=rfm_data)
+    clv_data = getCLV()  
+    
+    return render_template("index.html", rfm_data=rfm_data,clv_data=clv_data)
 
 @app.route("/member1")
 def member1():
